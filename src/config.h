@@ -30,7 +30,7 @@ namespace Config {
         HUD_SCL = 22,
         HUD_SDA = 21,
         // Microphone
-        MIC = 36,
+        MIC = 26,
         // Fan PWM control
         FAN_PWM = 16;
     }
@@ -68,7 +68,9 @@ namespace Config {
     namespace Bluetooth {
         // Bluetooth gamepad name 
         // static const char* DEVICE_NAME = "Game-Pad";
-        static const char* DEVICE_NAME = "MOCUTE-052Fe-AUTO";
+        //static const char* DEVICE_NAME = "MOCUTE-052Fe-AUTO";
+        //static const char* DEVICE_NAME = "MOGA XP5-X Plus  ";
+        static const char* DEVICE_NAME = "ESP32 Keyboard";
     }
 
     // EEPROM addresses for saving certain settings, changing this will likely mess up your settings
@@ -80,7 +82,7 @@ namespace Config {
         AUTO_BLINK = 2,
         FAN_PWM_SPEED = 3,
         MATRIX = 4,
-        LEDSTRIP = 5,
+        LEDSTRIP = 5, //ws2812 led pin   MH-ET GPIO5 is SPI-CS pin
         BOOP_TRIGGER_MULTIPLIER = 6,
         RARE_TRANSITION_CHANCE = 7,
         ANIMATED_MOUTH = 8,
@@ -100,7 +102,7 @@ namespace Config {
     const u8 
     BOOP_TRIGGER_COUNT = 4,             // how many updates to wait until boop animation triggers
     BOOP_TRIGGERS_MAX = 6,              // maximum value for boop activation (must be higher than activation threshold)
-    FAN_INITIAL_SPEED = 255,
+    FAN_INITIAL_SPEED = 127,    // Changed from 255 for testing pwm
     FAN_PWM_CHANNEL = 0,
     FAN_PWM_RESOLUTION = 8;
     const u32 FAN_PWM_FREQUENCY = 25000;

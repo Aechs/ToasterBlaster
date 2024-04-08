@@ -175,7 +175,7 @@ void handleJoystickInput(u8 x, u8 y) {
     controller->handleInput(x, y);
 }
 
-void createButtonMapping() {
+void createButtonMapping() { // Change all mapped key inputs here
     BLEGamepad::inputHandler.mapButtonsToJoystick(BTN_UP, BTN_DOWN, BTN_LEFT, BTN_RIGHT, handleJoystickInput);
     BLEGamepad::inputHandler.mapButtonsToJoystick(BTN_ALT_UP, BTN_ALT_DOWN, BTN_ALT_LEFT, BTN_ALT_RIGHT, handleJoystickInput);
     BLEGamepad::inputHandler.mapButtonsToJoystick(BTN_ALT_X, BTN_ALT_B, BTN_ALT_A, BTN_ALT_Y, handleJoystickInput);
@@ -230,7 +230,7 @@ void createSettingsMenu() {
 
     settingsManager->addSettings({
         new LambdaSetting(
-            "Matrix", "Brightness", 15, 
+            "Matrix", "Brightness", 9, // brightness was originally 15
             []() -> u8 { return displayManager->getMatrixBrightness(); },
             [](i8 value) { displayManager->addMatrixBrightness(value); }, 
             Config::EEPROM::MATRIX_BRIGHTNESS

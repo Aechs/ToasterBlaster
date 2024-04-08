@@ -137,7 +137,7 @@ namespace BLEGamepad {
     void onBluetoothInput(esp_hidh_event_data_t* event) {
         u8* data = event->input.data;
         u16 length = event->input.length;
-
+        printBluetoothData(data, length);
         #ifdef BTDEBUG
         printBluetoothData(data, length);
         #endif
